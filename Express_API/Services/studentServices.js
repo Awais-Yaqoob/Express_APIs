@@ -5,29 +5,29 @@ const Students = [
   ];
   
   module.exports = {
-    getCourses: (data) => {
+    getStudents: (data) => {
       return Students;
     },
-    updateCourse: (data) => {
-      const student = Students.find((c) => c.id === parseInt(data.id));
+    updateStudent: (id,reqdata) => {
+      const student = Students.find((c) => c.id === parseInt(id));
       if (!student) {
         return "The Student with the given ID was not found."; //404
       } else {
-        student.name = data.name;
+        student.name = reqdata.name;
         return student;
       }
     },
-    deleteCourse: (data) => {
-      const student = Students.find((c) => c.id === parseInt(data.id));
+    deleteStudent: (id) => {
+      const student = Students.find((c) => c.id === parseInt(id));
       if (!student) {
         return "The Student with the given ID was not found."; //404
       } else {
         const index = Students.indexOf(student);
         Students.splice(index, 1);
-        return student;
+        return Students;
       }
     },
-    addCourse: (data) => {
+    addStudent: (data) => {
       const students = {
         id: Students.length + 1,
         name: data.name,

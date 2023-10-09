@@ -4,7 +4,7 @@ const {
   addStudent,
   updateStudent,
   deleteStudent,
-} = require("../controller/courses/courseController");
+} = require("../Controllers/studentController");
 var router = express.Router();
 /* GET students listing. */
 router.get("/", getStudents);
